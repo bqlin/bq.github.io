@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Foundation," />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="建议直接添加为 NSString 分类 1234567891011121314/// 手机号码校验BOOL IsTelNumber(NSString *telNumber)&amp;#123;	NSString *pattern = @&quot;^1+[3578]+\\d&amp;#123;9&amp;#125;&quot;;	NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;S">
-<meta name="keywords" content="Foundation">
+<meta name="description" content="原文 站点配置，操作 _config.yml 文件，下面开始进行分段详细的说明。">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符串校验">
-<meta property="og:url" content="https://bqlin.github.io/iOS/字符串校验/index.html">
+<meta property="og:title" content="hexo 配置">
+<meta property="og:url" content="https://bqlin.github.io/webPlus/hexo配置/index.html">
 <meta property="og:site_name" content="叫冰淇淋的猴子">
-<meta property="og:description" content="建议直接添加为 NSString 分类 1234567891011121314/// 手机号码校验BOOL IsTelNumber(NSString *telNumber)&amp;#123;	NSString *pattern = @&quot;^1+[3578]+\\d&amp;#123;9&amp;#125;&quot;;	NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;S">
+<meta property="og:description" content="原文 站点配置，操作 _config.yml 文件，下面开始进行分段详细的说明。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-26T05:53:38.000Z">
+<meta property="og:updated_time" content="2017-08-26T15:25:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="字符串校验">
-<meta name="twitter:description" content="建议直接添加为 NSString 分类 1234567891011121314/// 手机号码校验BOOL IsTelNumber(NSString *telNumber)&amp;#123;	NSString *pattern = @&quot;^1+[3578]+\\d&amp;#123;9&amp;#125;&quot;;	NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;S">
+<meta name="twitter:title" content="hexo 配置">
+<meta name="twitter:description" content="原文 站点配置，操作 _config.yml 文件，下面开始进行分段详细的说明。">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://bqlin.github.io/iOS/字符串校验/"/>
+  <link rel="canonical" href="https://bqlin.github.io/webPlus/hexo配置/"/>
 
 
 
 
 
-  <title>字符串校验 | 叫冰淇淋的猴子</title>
+  <title>hexo 配置 | 叫冰淇淋的猴子</title>
   
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://bqlin.github.io/iOS/字符串校验/">
+    <link itemprop="mainEntityOfPage" href="https://bqlin.github.io/webPlus/hexo配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BqLin">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">字符串校验</h1>
+          <h1 class="post-title" itemprop="name headline">hexo 配置</h1>
         
 
         <div class="post-meta">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T13:08:00+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T13:05:40+08:00">
+                2017-08-26
               </time>
             
 
@@ -372,8 +372,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
+                  <a href="/categories/webPlus/" itemprop="url" rel="index">
+                    <span itemprop="name">建站</span>
                   </a>
                 </span>
 
@@ -409,8 +409,45 @@
       
 
       
-        <p>建议直接添加为 NSString 分类</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/// 手机号码校验</span></div><div class="line"><span class="built_in">BOOL</span> IsTelNumber(<span class="built_in">NSString</span> *telNumber)&#123;</div><div class="line">	<span class="built_in">NSString</span> *pattern = <span class="string">@"^1+[3578]+\\d&#123;9&#125;"</span>;</div><div class="line">	<span class="built_in">NSPredicate</span> *pred = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, pattern];</div><div class="line">	<span class="built_in">BOOL</span> isMatch = [pred evaluateWithObject:telNumber];</div><div class="line">	<span class="keyword">return</span> isMatch;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/// 电邮校验</span></div><div class="line"><span class="built_in">BOOL</span> IsEmail(<span class="built_in">NSString</span> *email) &#123;</div><div class="line">	<span class="built_in">NSString</span> *emailRegex = <span class="string">@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;"</span>;</div><div class="line">	<span class="built_in">NSPredicate</span> *emailTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, emailRegex];</div><div class="line">	<span class="keyword">return</span> [emailTest evaluateWithObject:email];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p><a href="http://xiaoxuetu.github.io/2015/08/31/hexo-guide/" target="_blank" rel="external">原文</a></p>
+<p>站点配置，操作 <code>_config.yml</code> 文件，下面开始进行分段详细的说明。<br><a id="more"></a></p>
+<h2 id="1-gt-站点配置"><a href="#1-gt-站点配置" class="headerlink" title="1&gt; 站点配置"></a>1&gt; 站点配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> <span class="string">小学徒V的成长历程</span>    <span class="comment"># 网站标题</span></div><div class="line"><span class="attr">subtitle:</span> <span class="string">挑战人生无极限，攀登人生更高峰</span>    <span class="comment"># 网站子标题</span></div><div class="line"><span class="attr">description:</span> <span class="string">这是一个利用Hexo搭建的博客</span>    <span class="comment"># 网站描述</span></div><div class="line"><span class="attr">author:</span>  <span class="string">小学徒V</span>   <span class="comment"># 网站作者，也就是您的名字</span></div><div class="line"><span class="attr">language:</span> <span class="string">zh-cn</span>   <span class="comment"># 网站使用的语言        </span></div><div class="line"><span class="attr">timezone:</span>         <span class="comment"># 网站时区。Hexo 预设使用您电脑的时区。</span></div></pre></td></tr></table></figure>
+<h2 id="2-gt-网址配置"><a href="#2-gt-网址配置" class="headerlink" title="2&gt; 网址配置"></a>2&gt; 网址配置</h2><p>这个地方一般根据情况修改 <code>url</code> 和 <code>root</code> 即可。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="attr">url:</span> <span class="attr">http://xiaoxuetu.github.io</span>         <span class="comment"># 博客网址</span></div><div class="line"><span class="attr">root:</span> <span class="string">/</span>                                 <span class="comment"># 网站根目录</span></div><div class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>    <span class="comment"># 文章的永久链接格式   :year/:month/:day/:title/</span></div><div class="line"><span class="attr">permalink_defaults:</span>                     <span class="comment"># 永久链接中各部分的默认值</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意！ </strong><br>如果你的网站存放在子目录中，例如 <a href="http://xiaoxuetu.github.io/blog" target="_blank" rel="external">http://xiaoxuetu.github.io/blog</a>, 则将url设为<a href="http://xiaoxuetu.github.io/blog%EF%BC%8C" target="_blank" rel="external">http://xiaoxuetu.github.io/blog，</a> 并且把 root 设为/blog/。</p>
+</blockquote>
+<h2 id="3-gt-目录配置"><a href="#3-gt-目录配置" class="headerlink" title="3&gt; 目录配置"></a>3&gt; 目录配置</h2><p>这个地方一般直接取默认值不用修改。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Directory</span></div><div class="line"><span class="attr">source_dir:</span> <span class="string">source</span>         <span class="comment"># 资源文件夹，这个文件夹用来存放内容，例如我们用markdown编写的博文</span></div><div class="line"><span class="attr">public_dir:</span> <span class="string">public</span>         <span class="comment"># 公共文件夹，这个文件夹用于存放生成的静态博客文件。</span></div><div class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span>              <span class="comment"># 标签文件夹</span></div><div class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span>      <span class="comment"># 归档文件夹</span></div><div class="line"><span class="attr">category_dir:</span> <span class="string">categories</span>   <span class="comment"># 分类文件夹</span></div><div class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span>   <span class="comment"># Include code 文件夹</span></div><div class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span>            <span class="comment"># 国际化（i18n）文件夹</span></div><div class="line"><span class="attr">skip_render:</span>               <span class="comment"># 跳过指定文件的渲染，您可使用 glob 来配置路径。</span></div></pre></td></tr></table></figure>
+<h2 id="4-gt-文章配置"><a href="#4-gt-文章配置" class="headerlink" title="4&gt; 文章配置"></a>4&gt; 文章配置</h2><p>这个地方一般直接取默认值不用修改。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Writing</span></div><div class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span>    <span class="comment"># 新文章的文件名称</span></div><div class="line"><span class="attr">default_layout:</span> <span class="string">post</span>        <span class="comment"># 预设布局</span></div><div class="line"><span class="attr">titlecase:</span> <span class="literal">false</span>            <span class="comment"># 把标题转换为 titlecase（titlecase指的是将每个单词首字母转换成大写）</span></div><div class="line"><span class="attr">external_link:</span> <span class="literal">true</span>         <span class="comment"># 在新标签中打开链接</span></div><div class="line"><span class="attr">filename_case:</span> <span class="number">0</span>            <span class="comment"># 把文件名称转换为 (1) 小写或 (2) 大写, 0表示不变</span></div><div class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span>        <span class="comment"># 显示草稿</span></div><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span>    <span class="comment"># 启动 Asset 文件夹</span></div><div class="line"><span class="attr">relative_link:</span> <span class="literal">false</span>        <span class="comment"># 把链接改为与根目录的相对位址</span></div><div class="line"><span class="attr">future:</span> <span class="literal">true</span>                <span class="comment"># 显示未来的文章</span></div><div class="line"><span class="attr">highlight:</span>                  <span class="comment"># 代码块的设置</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span>              </div><div class="line"><span class="attr">  line_number:</span> <span class="literal">true</span>         <span class="comment"># 是否显示行号</span></div><div class="line"><span class="attr">  auto_detect:</span> <span class="literal">true</span>         <span class="comment"># 是否自动监测</span></div><div class="line"><span class="attr">  tab_replace:</span>              <span class="comment"># 将 tab 替换成其他字符串</span></div></pre></td></tr></table></figure>
+<h2 id="5-gt-分类和标签配置"><a href="#5-gt-分类和标签配置" class="headerlink" title="5&gt; 分类和标签配置"></a>5&gt; 分类和标签配置</h2><p>这个地方一般直接取默认值不用修改。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Category &amp; Tag</span></div><div class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span>    <span class="comment"># 默认分类, uncategorized表示未分类</span></div><div class="line"><span class="attr">category_map:</span>                      <span class="comment"># 分类别名</span></div><div class="line"><span class="attr">tag_map:</span>                           <span class="comment"># 标签别名</span></div></pre></td></tr></table></figure>
+<h2 id="6-gt-日期-以及-时间格式-配置"><a href="#6-gt-日期-以及-时间格式-配置" class="headerlink" title="6&gt; 日期 以及 时间格式 配置"></a>6&gt; 日期 以及 时间格式 配置</h2><p>Hexo 使用 Moment.js 来解析和现实时间，一般我们直接取默认值不用修改。<br>如果你想修改的话，可以按照 <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank" rel="external">http://momentjs.com/docs/#/displaying/format/</a> 中定义的格式进行修改。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span>           <span class="comment"># 日期格式</span></div><div class="line"><span class="attr">time_format:</span> <span class="attr">HH:mm:ss</span>             <span class="comment"># 时间格式</span></div></pre></td></tr></table></figure>
+<h2 id="7-gt-分页配置"><a href="#7-gt-分页配置" class="headerlink" title="7&gt; 分页配置"></a>7&gt; 分页配置</h2><p>这个地方一般根据自己的需求修改 <code>per_page</code> 设置每页显示的文章数量即可。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Pagination</span></div><div class="line"><span class="attr">per_page:</span> <span class="number">10</span>                      <span class="comment"># 每页显示的文章量，如果设置值为0，则表示禁止分野</span></div><div class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span>              <span class="comment"># 分页目录</span></div></pre></td></tr></table></figure>
+<h2 id="8-gt-主题配置"><a href="#8-gt-主题配置" class="headerlink" title="8&gt; 主题配置"></a>8&gt; 主题配置</h2><p>一般从这里开始，都是属于Hexo拓展插件的配置了，下面这段是配置我们博客所要使用的主题名字，想要获取更多的主题，可以参考：<a href="http://hexo.io/themes/" target="_blank" rel="external">http://hexo.io/themes/</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="attr">theme:</span> <span class="string">landscape</span>    <span class="comment"># 主题设置，默认是 landscape</span></div></pre></td></tr></table></figure>
+<h2 id="9-gt-部署配置"><a href="#9-gt-部署配置" class="headerlink" title="9&gt; 部署配置"></a>9&gt; 部署配置</h2><p>这一块涉及到博客发布，将在下一篇博文中统一进行讲解，这里可以先不用修改配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span>     <span class="comment"># 设置发布类型，如git，rsync</span></div></pre></td></tr></table></figure>
+<h4 id="2-2-主题设置"><a href="#2-2-主题设置" class="headerlink" title="2.2 主题设置"></a>2.2 主题设置</h4><p>这个其实就是 <code>themes/{主题名称}/_config.yml</code> 文件了，主要是网站主题的一些配置，如需要显示的菜单、开启的组件等等。</p>
+<p>不同的主题，都会增加了自己的一些特别开关，下面只以默认主题为例进行讲解。</p>
+<p>1&gt; 菜单配置</p>
+<p>这里主要是对博客显示的菜单项的访问路径进行配置，</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Header</span></div><div class="line"><span class="attr">menu:</span>                    <span class="comment"># 菜单项的相关配置</span></div><div class="line"><span class="attr">  Home:</span> <span class="string">/</span>                <span class="comment"># 配置博客的主页路径</span></div><div class="line"><span class="attr">  Archives:</span> <span class="string">/archives</span>    <span class="comment"># 配置博客的归档路径</span></div><div class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span>           <span class="comment"># 配置博客的RSS订阅路径</span></div></pre></td></tr></table></figure>
+<p>2&gt; 显示内容配置</p>
+<p>这里主要对博客显示的内容进行设置，比如查看全文的按钮文本显示。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Content</span></div><div class="line"><span class="attr">excerpt_link:</span> <span class="string">阅读全文</span>    <span class="comment"># 设置查看全文的按钮显示文本</span></div><div class="line"><span class="attr">fancybox:</span> <span class="literal">true</span>           <span class="comment"># 是否开启弹出层效果</span></div></pre></td></tr></table></figure>
+<p>3&gt; 侧边栏配置</p>
+<p>主要是对侧边栏展现进行设置。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sidebar</span></div><div class="line"><span class="attr">sidebar:</span> <span class="string">right</span>    <span class="comment"># 侧边栏展示的方向</span></div><div class="line"><span class="attr">widgets:</span>          <span class="comment"># 侧边栏添加的组件配置</span></div><div class="line"><span class="bullet">-</span> <span class="string">category</span>        <span class="comment"># 显示分类</span></div><div class="line"><span class="bullet">-</span> <span class="string">tag</span>             <span class="comment"># 显示标签</span></div><div class="line"><span class="bullet">-</span> <span class="string">tagcloud</span>        <span class="comment"># 显示标签云</span></div><div class="line"><span class="bullet">-</span> <span class="string">archive</span>         <span class="comment"># 显示归档</span></div><div class="line"><span class="bullet">-</span> <span class="string">recent_posts</span>    <span class="comment"># 显示最近发布</span></div></pre></td></tr></table></figure>
+<p>4&gt; 其他配置</p>
+<p>第1点 和 第2点 都是大部分主题通用的配置，下面这些就是比较定制化的了。除了下面列出的，国内大部分主题都还会添加了百度统计的ID配置、多说的ID配置、Jiathis分享活着百度分享的配置等等。</p>
+<p>具体我们依旧是只讲解默认主题里面的。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Miscellaneous</span></div><div class="line"><span class="attr">google_analytics:</span> <span class="string">"UA-********-1"</span>    <span class="comment"># 谷歌统计的ID配置，如果你没有用到，可以为空</span></div><div class="line"><span class="attr">favicon:</span> <span class="string">/favicon.png</span>                <span class="comment"># 网站图标路径</span></div><div class="line"><span class="attr">twitter:</span>                             <span class="comment"># twitter配置</span></div><div class="line"><span class="attr">google_plus:</span>                         <span class="comment"># google plus 配置</span></div><div class="line"><span class="attr">fb_admins:</span>                           <span class="comment"># facebook 配置</span></div><div class="line"><span class="attr">fb_app_id:</span></div></pre></td></tr></table></figure>
+<p>至此，我们博客的 Hexo配置 和 主题配置 都完成了。</p>
+
       
     </div>
     
@@ -451,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Foundation/" rel="tag"># Foundation</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
         </div>
       
@@ -470,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOS/文档相对路径  -  绝对路径/" rel="prev" title="文档相对路径 <-> 绝对路径">
-                文档相对路径 <-> 绝对路径 <i class="fa fa-chevron-right"></i>
+              <a href="/webPlus/中文乱码问题/" rel="prev" title="中文乱码问题">
+                中文乱码问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -490,32 +527,6 @@
 
 
     <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微薄</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2142540" charset="utf-8"></script>
-<!-- JiaThis Button END -->
       
     </div>
   </div>
@@ -552,8 +563,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/avatar_bq.jpg"
@@ -570,7 +590,7 @@ var jiathis_config={
             
               <a href="/archives">
             
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -646,6 +666,22 @@ var jiathis_config={
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-gt-站点配置"><span class="nav-number">1.</span> <span class="nav-text">1> 站点配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-gt-网址配置"><span class="nav-number">2.</span> <span class="nav-text">2> 网址配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-gt-目录配置"><span class="nav-number">3.</span> <span class="nav-text">3> 目录配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-gt-文章配置"><span class="nav-number">4.</span> <span class="nav-text">4> 文章配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-gt-分类和标签配置"><span class="nav-number">5.</span> <span class="nav-text">5> 分类和标签配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-gt-日期-以及-时间格式-配置"><span class="nav-number">6.</span> <span class="nav-text">6> 日期 以及 时间格式 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-gt-分页配置"><span class="nav-number">7.</span> <span class="nav-text">7> 分页配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-gt-主题配置"><span class="nav-number">8.</span> <span class="nav-text">8> 主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-gt-部署配置"><span class="nav-number">9.</span> <span class="nav-text">9> 部署配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-主题设置"><span class="nav-number">9.0.1.</span> <span class="nav-text">2.2 主题设置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
