@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[中文乱码问题]]></title>
+    <url>%2FwebPlus%2F%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[设置编码语言为 zh-CN 1language: zh-CN 将博客文件保存为UTF-8即可解决问题。方法： 将博客文件保存为UTF-8； hexo d -g；]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo 配置]]></title>
+    <url>%2FwebPlus%2Fhexo%20%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[原文 这个其实就是博客根目录下的 _config.yml 文件，主要是对Hexo的配置以及站点的相关配置，下面开始进行分段详细的说明 1&gt; 站点配置1234567# Sitetitle: 小学徒V的成长历程 # 网站标题subtitle: 挑战人生无极限，攀登人生更高峰 # 网站子标题description: 这是一个利用Hexo搭建的博客 # 网站描述author: 小学徒V # 网站作者，也就是您的名字language: zh-cn # 网站使用的语言 timezone: # 网站时区。Hexo 预设使用您电脑的时区。 2&gt; 网址配置这个地方一般根据情况修改 url 和 root 即可。 12345# URLurl: http://xiaoxuetu.github.io # 博客网址root: / # 网站根目录permalink: :year/:month/:day/:title/ # 文章的永久链接格式 :year/:month/:day/:title/permalink_defaults: # 永久链接中各部分的默认值 注意！ 如果你的网站存放在子目录中，例如 http://xiaoxuetu.github.io/blog, 则将url设为http://xiaoxuetu.github.io/blog， 并且把 root 设为/blog/。 3&gt; 目录配置这个地方一般直接取默认值不用修改。 123456789# Directorysource_dir: source # 资源文件夹，这个文件夹用来存放内容，例如我们用markdown编写的博文public_dir: public # 公共文件夹，这个文件夹用于存放生成的静态博客文件。tag_dir: tags # 标签文件夹archive_dir: archives # 归档文件夹category_dir: categories # 分类文件夹code_dir: downloads/code # Include code 文件夹i18n_dir: :lang # 国际化（i18n）文件夹skip_render: # 跳过指定文件的渲染，您可使用 glob 来配置路径。 4&gt; 文章配置这个地方一般直接取默认值不用修改。 123456789101112131415# Writingnew_post_name: :title.md # 新文章的文件名称default_layout: post # 预设布局titlecase: false # 把标题转换为 titlecase（titlecase指的是将每个单词首字母转换成大写）external_link: true # 在新标签中打开链接filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写, 0表示不变render_drafts: false # 显示草稿post_asset_folder: false # 启动 Asset 文件夹relative_link: false # 把链接改为与根目录的相对位址future: true # 显示未来的文章highlight: # 代码块的设置 enable: true line_number: true # 是否显示行号 auto_detect: true # 是否自动监测 tab_replace: # 将 tab 替换成其他字符串 5&gt; 分类和标签配置这个地方一般直接取默认值不用修改。 1234# Category &amp; Tagdefault_category: uncategorized # 默认分类, uncategorized表示未分类category_map: # 分类别名tag_map: # 标签别名 6&gt; 日期 以及 时间格式 配置Hexo 使用 Moment.js 来解析和现实时间，一般我们直接取默认值不用修改。如果你想修改的话，可以按照 http://momentjs.com/docs/#/displaying/format/ 中定义的格式进行修改。 12date_format: YYYY-MM-DD # 日期格式time_format: HH:mm:ss # 时间格式 7&gt; 分页配置这个地方一般根据自己的需求修改 per_page 设置每页显示的文章数量即可。 123# Paginationper_page: 10 # 每页显示的文章量，如果设置值为0，则表示禁止分野pagination_dir: page # 分页目录 8&gt; 主题配置一般从这里开始，都是属于Hexo拓展插件的配置了，下面这段是配置我们博客所要使用的主题名字，想要获取更多的主题，可以参考：http://hexo.io/themes/ 12# Extensionstheme: landscape # 主题设置，默认是 landscape 9&gt; 部署配置这一块涉及到博客发布，将在下一篇博文中统一进行讲解，这里可以先不用修改配置 123# Deploymentdeploy: type: # 设置发布类型，如git，rsync 2.2 主题设置这个其实就是 themes/{主题名称}/_config.yml 文件了，主要是网站主题的一些配置，如需要显示的菜单、开启的组件等等。 不同的主题，都会增加了自己的一些特别开关，下面只以默认主题为例进行讲解。 1&gt; 菜单配置 这里主要是对博客显示的菜单项的访问路径进行配置， 12345# Headermenu: # 菜单项的相关配置 Home: / # 配置博客的主页路径 Archives: /archives # 配置博客的归档路径rss: /atom.xml # 配置博客的RSS订阅路径 2&gt; 显示内容配置 这里主要对博客显示的内容进行设置，比如查看全文的按钮文本显示。 123# Contentexcerpt_link: 阅读全文 # 设置查看全文的按钮显示文本fancybox: true # 是否开启弹出层效果 3&gt; 侧边栏配置 主要是对侧边栏展现进行设置。 12345678# Sidebarsidebar: right # 侧边栏展示的方向widgets: # 侧边栏添加的组件配置- category # 显示分类- tag # 显示标签- tagcloud # 显示标签云- archive # 显示归档- recent_posts # 显示最近发布 4&gt; 其他配置 第1点 和 第2点 都是大部分主题通用的配置，下面这些就是比较定制化的了。除了下面列出的，国内大部分主题都还会添加了百度统计的ID配置、多说的ID配置、Jiathis分享活着百度分享的配置等等。 具体我们依旧是只讲解默认主题里面的。 1234567# Miscellaneousgoogle_analytics: "UA-********-1" # 谷歌统计的ID配置，如果你没有用到，可以为空favicon: /favicon.png # 网站图标路径twitter: # twitter配置google_plus: # google plus 配置fb_admins: # facebook 配置fb_app_id: 至此，我们博客的 Hexo配置 和 主题配置 都完成了。]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[文档相对路径 绝对路径]]></title>
+    <url>%2FiOS%2F%E6%96%87%E6%A1%A3%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%20%20-%20%20%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/// path -&gt; documentPathNSString *DocumentPathWithPath(NSString *path) &#123; NSString *documentDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject; NSString *documentPath = [path stringByReplacingOccurrencesOfString:documentDir withString:@""]; return documentPath;&#125;void FixPathInDictionary(NSMutableDictionary *dic) &#123; FixValueInDictionary(dic, ^(NSMutableDictionary *subDic, NSString *key) &#123; if ([key.lowercaseString containsString:@"path"]) &#123; NSString *path = subDic[key]; subDic[key] = DocumentPathWithPath(path); &#125; &#125;);&#125;/// documentPath -&gt; pathNSString *PathWithDocumentPath(NSString *documentPath) &#123; NSString *documentDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject; NSString *path = [documentDir stringByAppendingPathComponent:documentPath]; return path;&#125;void FixDocumentPathInDictionary(NSMutableDictionary *dic) &#123; FixValueInDictionary(dic, ^(NSMutableDictionary *subDic, NSString *key) &#123; if ([key.lowercaseString containsString:@"path"] &amp;&amp; ![subDic[key] containsString:@".app"] &amp;&amp; [subDic[key] length]) &#123; NSString *docPath = subDic[key]; subDic[key] = PathWithDocumentPath(docPath); &#125; &#125;);&#125;/// 遍历修改字典所有的相关值void FixValueInDictionary(NSMutableDictionary *dic, void (^handler)(NSMutableDictionary *subDic, NSString *key)) &#123; for (NSString *key in dic.allKeys) &#123; id value = dic[key]; if ([value isKindOfClass:[NSArray class]]) &#123; NSArray *array = value; for (id object in array) &#123; if ([object isKindOfClass:[NSDictionary class]]) &#123; //[self fixValueInDictionary:object handler:handler]; FixValueInDictionary(object, handler); &#125; &#125; //NSLog(@"%@ is array", value); &#125; if ([value isKindOfClass:[NSDictionary class]]) &#123; //[self fixValueInDictionary:value handler:handler]; FixValueInDictionary(value, handler); //NSLog(@"%@ is dictionary", value); &#125; handler(dic, key); &#125;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[字符串校验]]></title>
+    <url>%2FiOS%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%A1%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[建议直接添加为 NSString 分类 1234567891011121314/// 手机号码校验BOOL IsTelNumber(NSString *telNumber)&#123; NSString *pattern = @"^1+[3578]+\\d&#123;9&#125;"; NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern]; BOOL isMatch = [pred evaluateWithObject:telNumber]; return isMatch;&#125;/// 电邮校验BOOL IsEmail(NSString *email) &#123; NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;"; NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; return [emailTest evaluateWithObject:email];&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+</search>
