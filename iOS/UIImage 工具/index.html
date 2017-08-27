@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="叫冰淇淋的猴子" />
+  <meta name="keywords" content="UIKit," />
 
 
 
@@ -93,16 +93,18 @@
 
 
 
-<meta name="description" content="🤘🐒🍦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="叫冰淇淋的猴子">
-<meta property="og:url" content="https://bqlin.github.io/archives/2017/index.html">
+<meta name="description" content="使用相机拍摄的图片（UIImage），有一个 imageOrientation 的属性，该属性记录了图片的旋转方向信息，在开发中，如果直接使用 UIImage，例如为 CALayer 设置 contents，就可能得到不正确的图片方向。解决方式很简单，重绘一下图片就好。">
+<meta name="keywords" content="UIKit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIImage 工具">
+<meta property="og:url" content="https://bqlin.github.io/iOS/UIImage 工具/index.html">
 <meta property="og:site_name" content="叫冰淇淋的猴子">
-<meta property="og:description" content="🤘🐒🍦">
+<meta property="og:description" content="使用相机拍摄的图片（UIImage），有一个 imageOrientation 的属性，该属性记录了图片的旋转方向信息，在开发中，如果直接使用 UIImage，例如为 CALayer 设置 contents，就可能得到不正确的图片方向。解决方式很简单，重绘一下图片就好。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-27T14:29:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="叫冰淇淋的猴子">
-<meta name="twitter:description" content="🤘🐒🍦">
+<meta name="twitter:title" content="UIImage 工具">
+<meta name="twitter:description" content="使用相机拍摄的图片（UIImage），有一个 imageOrientation 的属性，该属性记录了图片的旋转方向信息，在开发中，如果直接使用 UIImage，例如为 CALayer 设置 contents，就可能得到不正确的图片方向。解决方式很简单，重绘一下图片就好。">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://bqlin.github.io/archives/2017/"/>
+  <link rel="canonical" href="https://bqlin.github.io/iOS/UIImage 工具/"/>
 
 
 
 
 
-  <title>归档 | 叫冰淇淋的猴子</title>
+  <title>UIImage 工具 | 叫冰淇淋的猴子</title>
   
 
 
@@ -166,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -304,411 +306,202 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bqlin.github.io/iOS/UIImage 工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BqLin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar_bq.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叫冰淇淋的猴子">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">UIImage 工具</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T20:08:41+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/时间戳/" itemprop="url">
-              
-                <span itemprop="name">时间戳</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-27T20:08:50+08:00"
-              content="2017-08-27" >
-          08-27
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/通过十六进制创建 UIColor/" itemprop="url">
-              
-                <span itemprop="name">通过十六进制创建 UIColor</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-27T20:08:47+08:00"
-              content="2017-08-27" >
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/时间显示/" itemprop="url">
-              
-                <span itemprop="name">时间显示</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-27T20:08:20+08:00"
-              content="2017-08-27" >
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/获取 UIView 的 UIViewController/" itemprop="url">
-              
-                <span itemprop="name">获取 UIView 的 UIViewController</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-27T20:08:05+08:00"
-              content="2017-08-27" >
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <p>使用相机拍摄的图片（UIImage），有一个 <code>imageOrientation</code> 的属性，该属性记录了图片的旋转方向信息，在开发中，如果直接使用 UIImage，例如为 CALayer 设置 <code>contents</code>，就可能得到不正确的图片方向。解决方式很简单，重绘一下图片就好。<br><a id="more"></a></p>
+<p>这里给出的方案通过给 UIImage 添加分类实现。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/// 矫正图片方向</span></div><div class="line">- (<span class="built_in">UIImage</span> *)fixImageOrientation &#123;</div><div class="line">	<span class="built_in">UIImageOrientation</span> imageOrientation = <span class="keyword">self</span>.imageOrientation;</div><div class="line">	<span class="built_in">UIImage</span> *newImage = <span class="keyword">self</span>;</div><div class="line">	<span class="keyword">if</span> (imageOrientation != <span class="built_in">UIImageOrientationUp</span>) &#123;</div><div class="line">		<span class="comment">// 调整图片角度</span></div><div class="line">		<span class="built_in">UIGraphicsBeginImageContext</span>(<span class="keyword">self</span>.size);</div><div class="line">		[<span class="keyword">self</span> drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.size.width, <span class="keyword">self</span>.size.height)];</div><div class="line">		newImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">		<span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> newImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>🎁彩蛋</p>
+<p>顺便地，给出一些压缩图片的方法。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/// 按比例缩放并重绘图片</span></div><div class="line">- (<span class="built_in">UIImage</span> *)scaleImage:(<span class="built_in">CGFloat</span>)scale &#123;</div><div class="line">	<span class="keyword">if</span> (scale &gt; <span class="number">1</span>) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">CGSize</span> newSize = <span class="built_in">CGSizeMake</span>(<span class="keyword">self</span>.size.width * scale, <span class="keyword">self</span>.size.height * scale);</div><div class="line">	<span class="keyword">return</span> [<span class="keyword">self</span> resizeImage:newSize];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/// 重绘图片</span></div><div class="line">- (<span class="built_in">UIImage</span> *)resizeImage:(<span class="built_in">CGSize</span>)newSize &#123;</div><div class="line">	<span class="built_in">UIGraphicsBeginImageContext</span>(newSize);</div><div class="line">	[<span class="keyword">self</span> drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, newSize.width, newSize.height)];</div><div class="line">	<span class="built_in">UIImage</span> *newSizeImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">	<span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> newSizeImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/// 压缩图片</span></div><div class="line">- (<span class="built_in">UIImage</span> *)compressImageWithQuality:(<span class="built_in">CGFloat</span>)compressionQuality &#123;</div><div class="line">	<span class="built_in">UIImage</span> *newImage = <span class="keyword">self</span>;</div><div class="line">	<span class="built_in">NSData</span> *imageData = <span class="built_in">UIImageJPEGRepresentation</span>(<span class="keyword">self</span>, compressionQuality);</div><div class="line">	<span class="keyword">if</span> (imageData) &#123;</div><div class="line">		newImage = [<span class="built_in">UIImage</span> imageWithData:imageData];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> newImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/webPlus/中文乱码问题/" itemprop="url">
-              
-                <span itemprop="name">中文乱码问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T13:08:58+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/webPlus/hexo配置/" itemprop="url">
-              
-                <span itemprop="name">hexo 配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T13:05:40+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/CGContext 操作/" itemprop="url">
-              
-                <span itemprop="name">CGContext 操作</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-24T22:08:57+08:00"
-              content="2017-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/扩展名类型判断/" itemprop="url">
-              
-                <span itemprop="name">扩展名类型判断</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-24T22:08:56+08:00"
-              content="2017-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/贴边缩放尺寸/" itemprop="url">
-              
-                <span itemprop="name">贴边缩放尺寸</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-24T22:08:49+08:00"
-              content="2017-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/iOS/获取指定类型的子控制器/" itemprop="url">
-              
-                <span itemprop="name">获取指定类型的子控制器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-24T22:08:41+08:00"
-              content="2017-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果能帮到你 给作者加块冰</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/ailipay_bq.png" alt="BqLin Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UIKit/" rel="tag"># UIKit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOS/简单实现跳转到带 Done 按钮的导航控制器/" rel="next" title="简单实现跳转到带 Done 按钮的导航控制器">
+                <i class="fa fa-chevron-left"></i> 简单实现跳转到带 Done 按钮的导航控制器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/iOS/为控件加个名称标识符/" rel="prev" title="为控件加个名称标识符">
+                为控件加个名称标识符 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -716,6 +509,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQ2NC83MDE4"></div>
+    
+  </div>
+
 
         </div>
         
@@ -956,7 +755,6 @@
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
 
 
   
@@ -986,6 +784,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

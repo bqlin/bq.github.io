@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[时间戳]]></title>
+    <url>%2FiOS%2F%E6%97%B6%E9%97%B4%E6%88%B3%2F</url>
+    <content type="text"><![CDATA[对后台请求参数最常用到的时间戳，简单地封装了个函数。 12345/// 时间戳NSString *TimeStampString() &#123; long timeStamp = [NSDate date].timeIntervalSince1970 * 1000; return @(timeStamp).description;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[通过十六进制创建 UIColor]]></title>
+    <url>%2FiOS%2F%E9%80%9A%E8%BF%87%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%88%9B%E5%BB%BA%20UIColor%2F</url>
+    <content type="text"><![CDATA[开发中使用 UI 提供的颜色值，莫过于直接使用十六进制颜色值。苹果居然不提供这样的方法，那就封装一个呗~ 为 UIColor 创建通过十六进制颜色值创建 UIColor 颜色的分类： 12345678910+ (UIColor *)colorWithHex:(int)hexValue alpha:(CGFloat)alpha&#123; return [UIColor colorWithRed:((float)((hexValue &amp; 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((hexValue &amp; 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(hexValue &amp; 0xFF))/255.0 alpha:alpha];&#125;+ (UIColor *)colorWithHex:(int)hexValue&#123; return [UIColor colorWithHex:hexValue alpha:1.0];&#125; 🎁彩蛋 对于创建灰度颜色，苹果提供了一个超便利的方法。 + (UIColor *)colorWithWhite:(CGFloat)white alpha:(CGFloat)alpha param description white The grayscale value of the color object, specified as a value from 0.0 to 1.0. alpha The opacity value of the color object, specified as a value from 0.0 to 1.0.]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[时间显示]]></title>
+    <url>%2FiOS%2F%E6%97%B6%E9%97%B4%E6%98%BE%E7%A4%BA%2F</url>
+    <content type="text"><![CDATA[对于遇到显示时间，以往都会使用以下的方式生成字符串。 123456NSString *TimeStringWithSeconds(NSTimeInterval time) &#123; if (isnan(time)) return nil; NSInteger minutes = (time / 60) % 60; NSInteger seconds = time % 60; return [NSString stringWithFormat:@"%02i:%02i", minutes, seconds];&#125; 有一天，发现苹果有一套时间格式化的便利方法，极其简介便利的解决上述问题。 1234567/// second -&gt; NSStringNSString *NSStringFromInterval(NSTimeInterval interval) &#123; if (isnan(interval)) return nil; NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init]; NSString *outputString = [formatter stringFromTimeInterval:interval]; return outputString;&#125; 🎁彩蛋 经过测试，NSDateComponentsFormatter 似乎用默认的配置是最符合我的需求的，其他的都比较小众。。 类似地，苹果开提供了以下的格式化工具： NSFormatter CNContactFormatter CNPostalAddressFormatter MKDistanceFormatter NSByteCountFormatter NSDateComponentsFormatter NSDateFormatter NSDateIntervalFormatter NSEnergyFormatter NSLengthFormatter NSMassFormatter NSNumberFormatter NSPersonNameComponentsFormatter 日后有时间，再详细研究每一种格式化工具。]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[获取 UIView 的 UIViewController]]></title>
+    <url>%2FiOS%2F%E8%8E%B7%E5%8F%96%20UIView%20%E7%9A%84%20UIViewController%2F</url>
+    <content type="text"><![CDATA[在自己封装控件时，有时需要获取该控件（UIView）所在的视图控制器（UIViewController），可以使用以下方式获得。 通过为 UIView 添加分类实现： 123456789101112/// 获取所在的视图控制器- (UIViewController *)viewController &#123; /// Finds the view's view controller. // Traverse responder chain. Return first found view controller, which will be the view's view controller. UIResponder *responder = self; while ((responder = [responder nextResponder])) if ([responder isKindOfClass: [UIViewController class]]) return (UIViewController *)responder; // If the view controller isn't found, return nil. return nil;&#125; 🎁彩蛋 12345678/// 返回所在的导航控制器- (UINavigationController *)navigationController &#123; UIResponder *responder = self; while ((responder = [responder nextResponder])) if ([responder isKindOfClass: [UINavigationController class]]) return (UINavigationController *)responder; return nil;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[中文乱码问题]]></title>
+    <url>%2FwebPlus%2F%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[修复 hexo 建站过程中语言显示不正确问题。 设置编码语言为 zh-CN 1language: zh-CN 但注意，当使用 NexT 主题时，需设置为 zh-Hans 才正常展示中文。 将博客文件保存为UTF-8即可解决问题。方法： 将博客文件保存为UTF-8； hexo d -g；]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo 配置]]></title>
+    <url>%2FwebPlus%2Fhexo%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[原文 站点配置，操作 _config.yml 文件，下面开始进行分段详细的说明。 1&gt; 站点配置1234567# Sitetitle: 小学徒V的成长历程 # 网站标题subtitle: 挑战人生无极限，攀登人生更高峰 # 网站子标题description: 这是一个利用Hexo搭建的博客 # 网站描述author: 小学徒V # 网站作者，也就是您的名字language: zh-cn # 网站使用的语言 timezone: # 网站时区。Hexo 预设使用您电脑的时区。 2&gt; 网址配置这个地方一般根据情况修改 url 和 root 即可。 12345# URLurl: http://xiaoxuetu.github.io # 博客网址root: / # 网站根目录permalink: :year/:month/:day/:title/ # 文章的永久链接格式 :year/:month/:day/:title/permalink_defaults: # 永久链接中各部分的默认值 注意！ 如果你的网站存放在子目录中，例如 http://xiaoxuetu.github.io/blog, 则将url设为http://xiaoxuetu.github.io/blog， 并且把 root 设为/blog/。 3&gt; 目录配置这个地方一般直接取默认值不用修改。 123456789# Directorysource_dir: source # 资源文件夹，这个文件夹用来存放内容，例如我们用markdown编写的博文public_dir: public # 公共文件夹，这个文件夹用于存放生成的静态博客文件。tag_dir: tags # 标签文件夹archive_dir: archives # 归档文件夹category_dir: categories # 分类文件夹code_dir: downloads/code # Include code 文件夹i18n_dir: :lang # 国际化（i18n）文件夹skip_render: # 跳过指定文件的渲染，您可使用 glob 来配置路径。 4&gt; 文章配置这个地方一般直接取默认值不用修改。 123456789101112131415# Writingnew_post_name: :title.md # 新文章的文件名称default_layout: post # 预设布局titlecase: false # 把标题转换为 titlecase（titlecase指的是将每个单词首字母转换成大写）external_link: true # 在新标签中打开链接filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写, 0表示不变render_drafts: false # 显示草稿post_asset_folder: false # 启动 Asset 文件夹relative_link: false # 把链接改为与根目录的相对位址future: true # 显示未来的文章highlight: # 代码块的设置 enable: true line_number: true # 是否显示行号 auto_detect: true # 是否自动监测 tab_replace: # 将 tab 替换成其他字符串 5&gt; 分类和标签配置这个地方一般直接取默认值不用修改。 1234# Category &amp; Tagdefault_category: uncategorized # 默认分类, uncategorized表示未分类category_map: # 分类别名tag_map: # 标签别名 6&gt; 日期 以及 时间格式 配置Hexo 使用 Moment.js 来解析和现实时间，一般我们直接取默认值不用修改。如果你想修改的话，可以按照 http://momentjs.com/docs/#/displaying/format/ 中定义的格式进行修改。 12date_format: YYYY-MM-DD # 日期格式time_format: HH:mm:ss # 时间格式 7&gt; 分页配置这个地方一般根据自己的需求修改 per_page 设置每页显示的文章数量即可。 123# Paginationper_page: 10 # 每页显示的文章量，如果设置值为0，则表示禁止分野pagination_dir: page # 分页目录 8&gt; 主题配置一般从这里开始，都是属于Hexo拓展插件的配置了，下面这段是配置我们博客所要使用的主题名字，想要获取更多的主题，可以参考：http://hexo.io/themes/ 12# Extensionstheme: landscape # 主题设置，默认是 landscape 9&gt; 部署配置这一块涉及到博客发布，将在下一篇博文中统一进行讲解，这里可以先不用修改配置 123# Deploymentdeploy: type: # 设置发布类型，如git，rsync 2.2 主题设置这个其实就是 themes/{主题名称}/_config.yml 文件了，主要是网站主题的一些配置，如需要显示的菜单、开启的组件等等。 不同的主题，都会增加了自己的一些特别开关，下面只以默认主题为例进行讲解。 1&gt; 菜单配置 这里主要是对博客显示的菜单项的访问路径进行配置， 12345# Headermenu: # 菜单项的相关配置 Home: / # 配置博客的主页路径 Archives: /archives # 配置博客的归档路径rss: /atom.xml # 配置博客的RSS订阅路径 2&gt; 显示内容配置 这里主要对博客显示的内容进行设置，比如查看全文的按钮文本显示。 123# Contentexcerpt_link: 阅读全文 # 设置查看全文的按钮显示文本fancybox: true # 是否开启弹出层效果 3&gt; 侧边栏配置 主要是对侧边栏展现进行设置。 12345678# Sidebarsidebar: right # 侧边栏展示的方向widgets: # 侧边栏添加的组件配置- category # 显示分类- tag # 显示标签- tagcloud # 显示标签云- archive # 显示归档- recent_posts # 显示最近发布 4&gt; 其他配置 第1点 和 第2点 都是大部分主题通用的配置，下面这些就是比较定制化的了。除了下面列出的，国内大部分主题都还会添加了百度统计的ID配置、多说的ID配置、Jiathis分享活着百度分享的配置等等。 具体我们依旧是只讲解默认主题里面的。 1234567# Miscellaneousgoogle_analytics: "UA-********-1" # 谷歌统计的ID配置，如果你没有用到，可以为空favicon: /favicon.png # 网站图标路径twitter: # twitter配置google_plus: # google plus 配置fb_admins: # facebook 配置fb_app_id: 至此，我们博客的 Hexo配置 和 主题配置 都完成了。]]></content>
+      <categories>
+        <category>建站</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CGContext 操作]]></title>
+    <url>%2FiOS%2FCGContext%20%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[下面给出几种 CGContext 常用的操作。 1234567// 旋转CGContextTranslateCTM(context, width, height);CGContextConcatCTM(context, CGAffineTransformMakeRotation(M_PI));// 上下翻转CGContextTranslateCTM(context, 0, height);CGContextScaleCTM(context, 1.0, -1.0);]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>CoreGraphics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[扩展名类型判断]]></title>
+    <url>%2FiOS%2F%E6%89%A9%E5%B1%95%E5%90%8D%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%2F</url>
+    <content type="text"><![CDATA[在我们使用操作系统，系统通常可以根据文件扩展名/后缀，来判断文件类型，并显示相应图标。那么，iOS 中可以怎样实现呢？ iOS 可以通过 UTI 来进行转换。UTI 是什么呢，用过 Media 相关的框架的同学可能不会陌生。需要了解的同学，可浏览以下资料： Uniform Type Identifier Concepts Uniform Type Identifier 具体实现代码如下： 12345678910111213141516171819202122/// extension -&gt; UTINSString *UTIForExtension(NSString *extension) &#123; //Request the UTI via the file extension NSString *theUTI = (__bridge_transfer NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)(extension), NULL); return theUTI;&#125;/// 匹配 UTIBOOL extensionConformToUTI(NSString *extension, CFStringRef theUTI) &#123; NSString *preferredUTI = UTIForExtension(extension); return (UTTypeConformsTo((__bridge CFStringRef) preferredUTI, theUTI));&#125;BOOL extensionLikelyImage(NSString *extension) &#123; return extensionConformToUTI(extension, CFSTR("public.image"));&#125;BOOL extensionLikelyAudio(NSString *extension) &#123; return extensionConformToUTI(extension, CFSTR("public.audio"));&#125;BOOL extensionLikelyMovie(NSString *extension) &#123; return extensionConformToUTI(extension, CFSTR("public.movie"));&#125; 🎁彩蛋 顺便的，给出 UTI 与 mimeType 的转换，以及相关的实用函数。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980/// UTI -&gt; mimeTypeNSString *mimeTypeForUTI(NSString *aUTI) &#123; CFStringRef theUTI = (__bridge CFStringRef) aUTI; CFStringRef mimeType = UTTypeCopyPreferredTagWithClass(theUTI, kUTTagClassMIMEType); return (__bridge_transfer NSString *)mimeType;&#125;/// 元素唯一字典NSArray *uniqueArray(NSArray *anArray) &#123; NSMutableArray *copiedArray = [NSMutableArray arrayWithArray:anArray]; for (id object in anArray) &#123; [copiedArray removeObjectIdenticalTo:object]; [copiedArray addObject:object]; &#125; return copiedArray;&#125;NSArray *conformanceArray(NSString *aUTI) &#123; NSMutableArray *results = [NSMutableArray arrayWithObject:aUTI]; NSDictionary *dictionary = utiDictionary(aUTI); id conforms = dictionary[(__bridge NSString *)kUTTypeConformsToKey]; // No conformance if (!conforms) return results; // Single conformance if ([conforms isKindOfClass:[NSString class]]) &#123; [results addObjectsFromArray:conformanceArray(conforms)]; return uniqueArray(results); &#125; // Iterate through multiple conformance if ([conforms isKindOfClass:[NSArray class]]) &#123; for (NSString *eachUTI in (NSArray *) conforms) [results addObjectsFromArray:conformanceArray(eachUTI)]; return uniqueArray(results); &#125; // Just return the one-item array return results;&#125;NSArray *allExtensions(NSString *aUTI) &#123; NSMutableArray *results = [NSMutableArray array]; NSArray *conformance = conformanceArray(aUTI); for (NSString *eachUTI in conformance) &#123; NSDictionary *dictionary = utiDictionary(eachUTI); NSDictionary *extensions = dictionary[(__bridge NSString *)kUTTypeTagSpecificationKey]; id fileTypes = extensions[(__bridge NSString *)kUTTagClassFilenameExtension]; if ([fileTypes isKindOfClass:[NSArray class]]) [results addObjectsFromArray:(NSArray *) fileTypes]; else if ([fileTypes isKindOfClass:[NSString class]]) [results addObject:(NSString *) fileTypes]; &#125; return uniqueArray(results);&#125;NSArray *allMIMETypes(NSString *aUTI) &#123; NSMutableArray *results = [NSMutableArray array]; NSArray *conformance = conformanceArray(aUTI); for (NSString *eachUTI in conformance) &#123; NSDictionary *dictionary = utiDictionary(eachUTI); NSDictionary *extensions = dictionary[(__bridge NSString *)kUTTypeTagSpecificationKey]; id fileTypes = extensions[(__bridge NSString *)kUTTagClassMIMEType]; if ([fileTypes isKindOfClass:[NSArray class]]) [results addObjectsFromArray:(NSArray *) fileTypes]; else if ([fileTypes isKindOfClass:[NSString class]]) [results addObject:(NSString *) fileTypes]; &#125; return uniqueArray(results);&#125;NSDictionary *utiDictionary(NSString *aUTI) &#123; NSDictionary *dictionary = (__bridge_transfer NSDictionary *)UTTypeCopyDeclaration((__bridge CFStringRef) aUTI); return dictionary;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[贴边缩放尺寸]]></title>
+    <url>%2FiOS%2F%E8%B4%B4%E8%BE%B9%E7%BC%A9%E6%94%BE%E5%B0%BA%E5%AF%B8%2F</url>
+    <content type="text"><![CDATA[贴边缩放，指的是父子视图中，子视图保持宽高不变，子视图长边或宽边紧贴父视图父内边或指定的宽高。 下面提出这种算法是实现方式。 12345678910- (CGSize)size:(CGSize)size fitInSize:(CGSize)inSize &#123; if (!size.height || !size.width) &#123; return CGSizeZero; &#125; CGFloat width = inSize.width; CGFloat height = size.height / size.width * width; height = fmin(height, inSize.height); width = size.width / size.height * height; return CGSizeMake(width, height);&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[获取指定类型的子控制器]]></title>
+    <url>%2FiOS%2F%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%90%E6%8E%A7%E5%88%B6%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[当需要获取当前控制器的指定类型的子控制器时，可以使用以下解决方案： 123456789- (UIViewController *)childViewControllerWithType:(Class)type &#123; for (UIViewController *controller in self.childViewControllers) &#123; if ([controller isKindOfClass:type]) &#123; return controller; &#125; &#125; NSLog(@"Requested controller of type %@ was not found.", NSStringFromClass(type)); return nil;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UIView 改变触摸范围]]></title>
+    <url>%2FiOS%2FUIView%20%E6%94%B9%E5%8F%98%E8%A7%A6%E6%91%B8%E8%8C%83%E5%9B%B4%2F</url>
+    <content type="text"><![CDATA[开发中常会遇到这样一种情况，UI 设计的控件很小，用户很难操作，想要扩大点击范围。开发听到，简单，扩大控件大小就得了。然，UI 希望保持原大小。如何既不改变控件大小，又可以改变控件的触摸范围呢。 UIView 可通过两种方式在不改变视图大小的情况下改变触摸范围的大小。 1234567891011121314// 方式一：重写 -pointInside:withEvent: 方法- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event &#123; //获取当前button的实际大小 CGRect bounds = self.bounds; //若原热区小于44x44，则放大热区，否则保持原大小不变 CGFloat widthDelta = MAX(44.0 - bounds.size.width, 0); CGFloat heightDelta = MAX(44.0 - bounds.size.height, 0); //扩大bounds bounds = CGRectInset(bounds, -0.5 * widthDelta, -0.5 * heightDelta); //如果点击的点 在 新的bounds里，就返回YES return CGRectContainsPoint(bounds, point);&#125; 1234567891011121314// 方式二：重写 -hitTest:withEvent: 方法- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event &#123; //获取当前button的实际大小 CGRect bounds = self.bounds; //若原热区小于44x44，则放大热区，否则保持原大小不变 CGFloat widthDelta = MAX(44.0 - bounds.size.width, 0); CGFloat heightDelta = MAX(44.0 - bounds.size.height, 0); //扩大bounds // -0.5 * widthDelta, -0.5 * heightDelta bounds = CGRectInset(bounds, -0.5 * widthDelta, -0.5 * heightDelta); return CGRectContainsPoint(bounds, point) ? self : nil;&#125; 🎁彩蛋 可以独立封装到 UIView 的分类中，以后只要设置属性就可以实现触摸范围的调整😏。 123// UIView+Bq.h/// 可触摸范围@property (nonatomic, assign) CGSize touchSize; 1234567891011121314151617181920212223242526272829// UIView+Bq.m#import &lt;objc/runtime.h&gt;static void *TouchSizeKey = &amp;TouchSizeKey;@implementation UIView (Bq)- (void)setTouchSize:(CGSize)touchSize &#123; objc_setAssociatedObject(self, &amp;TouchSizeKey, [NSValue valueWithCGSize:touchSize], OBJC_ASSOCIATION_COPY);&#125;- (CGSize)touchSize &#123; NSValue *touchSizeValue = objc_getAssociatedObject(self, &amp;TouchSizeKey); CGSize touchSize = touchSizeValue.CGSizeValue; if (!touchSizeValue) &#123; touchSize = self.bounds.size; &#125; return touchSize;&#125;#pragma mark - method rewrite- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event &#123; CGFloat widthDelta = self.touchSize.width - CGRectGetWidth(self.bounds); CGFloat heightDelta = self.touchSize.height - CGRectGetHeight(self.bounds); CGRect bounds = CGRectInset(self.bounds, -0.5 * widthDelta, -0.5 * heightDelta); return CGRectContainsPoint(bounds, point);&#125;@end]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[导航控制栏透明]]></title>
+    <url>%2FiOS%2F%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E6%A0%8F%E9%80%8F%E6%98%8E%2F</url>
+    <content type="text"><![CDATA[设置 UINavigationBar 透明的方式有许多。最简单的方式如： 1[[[self.navigationBar subviews] objectAtIndex:0] setAlpha:!hidden];]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[便捷获取 AVAsset 轨道]]></title>
+    <url>%2FiOS%2F%E4%BE%BF%E6%8D%B7%E8%8E%B7%E5%8F%96%20AVAsset%20%E8%BD%A8%E9%81%93%2F</url>
+    <content type="text"><![CDATA[AVAsset 的许多实用的属性都存储在其轨道（AVAssetTrack）对象中，例如，mediaType、naturalSize、preferredTransform。取出 AVAsset 对象的视频轨道，可以这样做：AVAssetTrack *assetTrack = [asset tracksWithMediaType:AVMediaTypeVideo].firstObject;。可以通过为 AVAsset 添加分类简化这一操作。 下面给出取出 AVAsset 对象的首个视频轨道和音频轨道的实现方法。 1234567- (AVAssetTrack *)videoTrack &#123; return [self tracksWithMediaType:AVMediaTypeVideo].firstObject;&#125;- (AVAssetTrack *)audioTrack &#123; return [self tracksWithMediaType:AVMediaTypeAudio].firstObject;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>AVFoundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CMTime/CMTimeRange NSDictionary]]></title>
+    <url>%2FiOS%2FCMTime%20CMTimeRange%20%20-%20%20NSDictionary%2F</url>
+    <content type="text"><![CDATA[当我们在对 CGRect 归档解档时，可以使用 NSString * NSStringFromCGRect ( CGRect rect ); 函数转化为 NSString；使用 CGRect CGRectFromString ( NSString *string ); 从 NSString 对象还原为 CGRect。 那么，对于 CoreMedia 的 CMTime 和 CMTimeRange 是否有类似的函数转化为 Objective-C 对象呢？然并卵！ 上帝给你关了一扇门，那可能还有后门呢。仔细查看文档，还真发现有一组对应的函数，只是通过字典来实现。 12345678910111213141516171819202122232425/// CMTime -&gt; NSDictionaryNSDictionary *NSDictionaryWithTime(CMTime time) &#123; NSDictionary *tempDic = CFBridgingRelease(CMTimeCopyAsDictionary(time, NULL)); NSMutableDictionary *dic = tempDic.mutableCopy; dic[@"desc"] = NSStringFromCMTime(time); return dic;&#125;/// NSDictionary -&gt; CMTimeCMTime CMTimeWithDictionary(NSDictionary *dict) &#123; return CMTimeMakeFromDictionary((__bridge CFDictionaryRef)dict);&#125;/// CMTimeRange -&gt; NSDictionaryNSDictionary *NSDictionaryWithTimeRange(CMTimeRange timeRange) &#123; NSDictionary *tempDic = CFBridgingRelease(CMTimeRangeCopyAsDictionary(timeRange, NULL)); NSMutableDictionary *dic = tempDic.mutableCopy; dic[@"desc"] = NSStringFromCMTimeRange(timeRange); return dic;&#125;/// NSDictionary -&gt; CMTimeRangeCMTimeRange CMTimeRangeWithDictionary(NSDictionary *dict) &#123; return CMTimeRangeMakeFromDictionary((__bridge CFDictionaryRef)dict);&#125; 🎁彩蛋 dic[@&quot;desc&quot;] = NSStringFromCMTime(time);，这里我在 CMTime 转换的字典中加了一个字段，用于描述这个 CMTime 字典的值。这就不用自己通过计算 CMTime 得出它表示的是多少秒。 NSString *NSStringFromCMTime(CMTime time); 是我自己实现的方法，你可以简单地实现： 1234NSString *NSStringFromCMTime(CMTime time) &#123; NSTimeInterval interval = CMTimeGetSeconds(time); return @(interval).description;&#125; NSString *NSStringFromCMTimeRange(CMTimeRange timeRange); 类似地实现，描述 CMTimeRange 的值。]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>AVFoundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[容器视图控制器子控制器样式控制]]></title>
+    <url>%2FiOS%2F%E5%AE%B9%E5%99%A8%E8%A7%86%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AD%90%E6%8E%A7%E5%88%B6%E5%99%A8%E6%A0%B7%E5%BC%8F%E6%8E%A7%E5%88%B6%2F</url>
+    <content type="text"><![CDATA[在控制视图控制器（UIViewController）旋转方向时，通常只需要实现以下三个方法： -shouldAutorotate -supportedInterfaceOrientations -preferredStatusBarStyle 然而，当视图控制外还套着一层 UINavigationController、UITabBarController 这样的容器控制器时，这些方法就会失效。解决方法很简单，只要实现自己实现 UINavigationController、UITabBarController，并实现以上的三个方法。蛋，就为了控制其子视图控制器的方向，就做一个子类，未免有点大材小用。而且，对于需要控制每个子控制器的不同旋转方向，还需要根据子类类名进行分支处理。这里提出一种更好的解决方案。 创建容器视图控制器分类，让其子视图控制器直接管理自己的旋转。 注意：当添加这样的重写原本方法的分类到项目编译，项目中的所有该类及其子类对象都会生效，都会受到影响。换句话说，只要添加这样的分类，不需要引入头文件都可对本类生效。 123456789101112// UITabBarController+Bq.m- (BOOL)shouldAutorotate &#123; return self.selectedViewController.shouldAutorotate;&#125;- (UIInterfaceOrientationMask)supportedInterfaceOrientations &#123; return self.selectedViewController.supportedInterfaceOrientations;&#125;- (UIStatusBarStyle)preferredStatusBarStyle &#123; return self.selectedViewController.preferredStatusBarStyle;&#125; 12345678910111213141516// UINavigationController+Bq.m- (BOOL)shouldAutorotate &#123; return self.topViewController.shouldAutorotate;&#125;- (UIInterfaceOrientationMask)supportedInterfaceOrientations &#123; return self.topViewController.supportedInterfaceOrientations;&#125;- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation &#123; return self.topViewController.preferredInterfaceOrientationForPresentation;&#125;- (UIStatusBarStyle)preferredStatusBarStyle &#123; return self.topViewController.preferredStatusBarStyle;&#125; 🎁彩蛋 类似的，对于设置状态栏隐藏也同理。 123456789// UITabBarController+Bq.m- (BOOL)prefersStatusBarHidden &#123; return self.selectedViewController.prefersStatusBarHidden;&#125;// UINavigationController+Bq.m- (BOOL)prefersStatusBarHidden &#123; return self.topViewController.prefersStatusBarHidden;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[为控件加个名称标识符]]></title>
+    <url>%2FiOS%2F%E4%B8%BA%E6%8E%A7%E4%BB%B6%E5%8A%A0%E4%B8%AA%E5%90%8D%E7%A7%B0%E6%A0%87%E8%AF%86%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[日常开发中，需要处理各种各样的控件（UIView）。为了区分不同的控件，我们会给控件对象取不同的名字。为何不直接给控件加个标题/名称标识符属性呢。 为 UIView 创建分类，添加属性。 12345678910111213141516// .h/// 控件标题@property (nonatomic, strong) IBInspectable NSString *title;// .m#import &lt;objc/runtime.h&gt;static void *TitleKey = &amp;TitleKey;#pragma mark - property- (void)setTitle:(NSString *)title &#123; objc_setAssociatedObject(self, &amp;TitleKey, title, OBJC_ASSOCIATION_COPY);&#125;- (NSString *)title &#123; return objc_getAssociatedObject(self, &amp;TitleKey);&#125; 🎁彩蛋 或许你发现了，这里属性加了个 IBInspectable 关键字的修饰，这样可以直接在 Interface Builder 中修改该值。]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UIImage 工具]]></title>
+    <url>%2FiOS%2FUIImage%20%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[使用相机拍摄的图片（UIImage），有一个 imageOrientation 的属性，该属性记录了图片的旋转方向信息，在开发中，如果直接使用 UIImage，例如为 CALayer 设置 contents，就可能得到不正确的图片方向。解决方式很简单，重绘一下图片就好。 这里给出的方案通过给 UIImage 添加分类实现。 1234567891011121314/// 矫正图片方向- (UIImage *)fixImageOrientation &#123; UIImageOrientation imageOrientation = self.imageOrientation; UIImage *newImage = self; if (imageOrientation != UIImageOrientationUp) &#123; // 调整图片角度 UIGraphicsBeginImageContext(self.size); [self drawInRect:CGRectMake(0, 0, self.size.width, self.size.height)]; newImage = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext(); &#125; return newImage;&#125; 🎁彩蛋 顺便地，给出一些压缩图片的方法。 12345678910111213141516171819202122232425262728293031/// 按比例缩放并重绘图片- (UIImage *)scaleImage:(CGFloat)scale &#123; if (scale &gt; 1) &#123; return self; &#125; CGSize newSize = CGSizeMake(self.size.width * scale, self.size.height * scale); return [self resizeImage:newSize];&#125;/// 重绘图片- (UIImage *)resizeImage:(CGSize)newSize &#123; UIGraphicsBeginImageContext(newSize); [self drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)]; UIImage *newSizeImage = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext(); return newSizeImage;&#125;/// 压缩图片- (UIImage *)compressImageWithQuality:(CGFloat)compressionQuality &#123; UIImage *newImage = self; NSData *imageData = UIImageJPEGRepresentation(self, compressionQuality); if (imageData) &#123; newImage = [UIImage imageWithData:imageData]; &#125; return newImage;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[简单实现跳转到带 Done 按钮的导航控制器]]></title>
+    <url>%2FiOS%2F%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%B8%A6%20Done%20%E6%8C%89%E9%92%AE%E7%9A%84%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[在日常开发中，经常需要模态跳转到一个带“完成”按钮的导航控制器，其根控制器才为我们需要的视图控制器。 这时，我们可以在 UIViewController 做一个分类。分类中方法只要传入我们需要的核心视图控制器对象，调用方法即可实现模态跳转到该视图控制器的导航控制器。 1234567891011/// 模态跳转到带完成导航栏的视图控制器- (void)presentDoneNavigationViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion &#123; UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:viewControllerToPresent]; viewControllerToPresent.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss:)]; [self presentViewController:viewControllerToPresent.navigationController animated:flag completion:completion]; navigation = nil;&#125;- (void)dismiss:(id)sender &#123; [self dismissViewControllerAnimated:YES completion:^&#123; &#125;];&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[计算文本 MD5、SHA1]]></title>
+    <url>%2FiOS%2F%E8%AE%A1%E7%AE%97%E6%96%87%E6%9C%AC%20MD5%E3%80%81SHA1%2F</url>
+    <content type="text"><![CDATA[为 NSString 添加计算 MD5 和 SHA1 的分类。 12345678910111213141516171819202122232425262728293031#import &lt;CommonCrypto/CommonDigest.h&gt;#import &lt;CommonCrypto/CommonCryptor.h&gt;- (NSString *)md5 &#123; const char* str = [self UTF8String]; unsigned char result[CC_MD5_DIGEST_LENGTH]; CC_MD5(str, (CC_LONG)strlen(str), result); NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2]; for(int i = 0; i&lt;CC_MD5_DIGEST_LENGTH; i++) &#123; [ret appendFormat:@"%02x",result[i]]; &#125; return ret;&#125;- (NSString *)sha1 &#123; const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding]; NSData *data = [NSData dataWithBytes:cstr length:self.length]; //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64 uint8_t digest[CC_SHA1_DIGEST_LENGTH]; //使用对应的CC_SHA256,CC_SHA384,CC_SHA512 CC_SHA1(data.bytes, (CC_LONG)data.length, digest); NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2]; for(int i = 0; i &lt; CC_SHA1_DIGEST_LENGTH; i++) [output appendFormat:@"%02x", digest[i]]; return output;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[随机数]]></title>
+    <url>%2FiOS%2F%E9%9A%8F%E6%9C%BA%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[对日常最常用到的随机数封装了两个限制随机数生成范围的 C 函数。 1234567891011/// 随机数 [from, to]NSInteger RandomValue(int fromValue, int toValue) &#123; NSInteger randomValue = arc4random() % (toValue - fromValue + 1) + fromValue; return randomValue;&#125;/// 随机数 [0, to]NSInteger RandomToValue(int toValue) &#123; NSInteger randomValue = arc4random() % (toValue + 1); return randomValue;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[文档相对路径 绝对路径]]></title>
+    <url>%2FiOS%2F%E6%96%87%E6%A1%A3%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%20%20-%20%20%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84_Post%2F</url>
+    <content type="text"><![CDATA[在做归档开发时，需要存储 App 文档目录下的一个资源，一开始简单存储了资源的全路径，发现 App 重启后再也获取不了那个资源了，上上下下检查了一通都没发现问题。后来，撒了泡尿，洗了个手。对哦，沙盒！因此每次 App 的文档根目录就会改变。 那么，做个相对路径就好！😲 在归档前把绝对路径转为相对路径，然后归档存储；解档前先把相对路径转换为绝对路径，然后解档还原模型。完美👾~ 12345678910111213/// path -&gt; documentPathNSString *DocumentPathWithPath(NSString *path) &#123; NSString *documentDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject; NSString *documentPath = [path stringByReplacingOccurrencesOfString:documentDir withString:@""]; return documentPath;&#125;/// documentPath -&gt; pathNSString *PathWithDocumentPath(NSString *documentPath) &#123; NSString *documentDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject; NSString *path = [documentDir stringByAppendingPathComponent:documentPath]; return path;&#125;]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[字符串校验]]></title>
+    <url>%2FiOS%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%A1%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[在开发登陆界面时，为了减少发送请求的次数和服务器校验的复杂度，可以现在客户端做一些校验和判断，并以恰当的形式表达给用户。这就免不了做输入内容的判断。下面给出几种输入校验的几种类型。 在做校验之前，我常会先清除用户输入的多余的空白字符，例如空格、换行。 12// 清除空白字符inputText = [inputText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]; 然后进行校验，下面以 C 函数实现。 1234567891011121314/// 手机号码校验BOOL IsTelNumber(NSString *telNumber)&#123; NSString *pattern = @"^1+[3578]+\\d&#123;9&#125;"; NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern]; BOOL isMatch = [pred evaluateWithObject:telNumber]; return isMatch;&#125;/// 电邮校验BOOL IsEmail(NSString *email) &#123; NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;"; NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; return [emailTest evaluateWithObject:email];&#125; 🎁彩蛋 建议直接添加为 NSString 分类，使用起来更加方便（方便实现链式编程😏）。]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>Foundation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UITableView 限制高度]]></title>
+    <url>%2FiOS%2FUITableView%20%E9%99%90%E5%88%B6%E9%AB%98%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[UITableView 设置高度可以说是一门艺术，设置单元格行高的方案有很多，本文不在叙述。下面只展开对表格头尾视图和区头区尾高度的设置。 限制表格头尾视图当不使用 header、footter 时，要想彻底去除其占用的高度或横线，需要代码实现。 1234// 去除表尾多余横线tableView.tableFooterView = [[UIView alloc] init];// 去除区头多余占用tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)]; 限制区头区尾占用开发时需要显示区头和区尾高度时，可使用两种方式： 设置 tableView 的 sectionHeaderHeight 和 sectionFooterHeight 属性。 当这两者有值时，tableView 会使用推荐的表格头视图，表最顶端会留一些空间。要想去除这些空间，则必须结合上面的“限制表格头尾视图”的方式和代理方法实现。 实现 tableView 代理方法； 12345678// 设置属性tableView.sectionHeaderHeight = 36;tableView.sectionFooterHeight = 0;// UITableViewDelegate- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section &#123; return 36;&#125; 推荐通过设置 tableView 的 sectionHeaderHeight 和 sectionFooterHeight 属性实现区间高度的的限制。]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>UIKit</tag>
+        <tag>UITableView</tag>
+      </tags>
+  </entry>
+</search>
